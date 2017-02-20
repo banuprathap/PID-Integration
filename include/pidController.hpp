@@ -15,8 +15,7 @@
  *   @brief  Class definition of
  *           PIDController
  *
- *   @param  none
- *   @return none
+ *   
  */
 class pidController{
 private:

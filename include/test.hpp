@@ -10,7 +10,13 @@
 #ifndef INCLUDE_TEST_HPP_
 #define INCLUDE_TEST_HPP_
 
-
+/**
+    
+ *   @brief  Class definition of
+ *           testPIDController
+ *
+ *
+ */
 class testPIDController{
 
 public:

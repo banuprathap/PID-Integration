@@ -14,11 +14,32 @@
 #include <tuple>
 
 
-
+/**
+    
+ *   @brief  Constructor function of
+ *           PIDController
+ *
+ *   @param  none
+ *   @return none
+ */
 testPIDController::testPIDController(){}
-
+/**
+    
+ *   @brief  Destructor function of
+ *           PIDController
+ *
+ *   @param  none
+ *   @return none
+ */
 testPIDController::~testPIDController(){}
 
+/**
+ *   Test the set control parameter function of
+ *           PIDController
+ *
+ *   @param  none
+ *   @return none
+*/
 void testPIDController::testSetParams() {
 	pidController pid;
 	double x = 10.0;
@@ -26,7 +47,13 @@ void testPIDController::testSetParams() {
 	assert(pid.getParams() == std::make_tuple(x,x,x));
 }
 
-
+/**
+ *   Test the compute velocity function of
+ *           PIDController
+ *
+ *   @param  none
+ *   @return none
+*/
 void testPIDController::testComputeControl() {
 	pidController pid;
 	double x = 10.0;
