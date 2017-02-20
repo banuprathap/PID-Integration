@@ -7,9 +7,9 @@ class testPIDController{
 public:
 	testPIDController();
 	~testPIDController();
-	bool testSetParams(double &p, double &i, double &d);
-	bool testComputeControl(double &setVal, double &time);
-	bool testAllMethods();
+	void testSetParams();
+	void testComputeControl();
 };
+
 
 #endif

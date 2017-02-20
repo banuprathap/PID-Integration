@@ -1,16 +1,10 @@
 #include <assert.h>
 #include <iostream>
 #include <pidController.hpp>
+#include <test.hpp>
 #include <tuple>
 
-class testPIDController{
 
-public:
-	testPIDController();
-	~testPIDController();
-	void testSetParams();
-	void testComputeControl();
-};
 
 testPIDController::testPIDController(){}
 
@@ -18,12 +12,15 @@ testPIDController::~testPIDController(){}
 
 void testPIDController::testSetParams() {
 	pidController pid;
-	pid.setParams(10,10,10);
-	assert(pid.getParams() == std::make_tuple(10,10,10));
+	double x = 10.0;
+	pid.setParams(x,x,x);
+	assert(pid.getParams() == std::make_tuple(x,x,x));
 }
 
 
 void testPIDController::testComputeControl() {
-	assert(pid.computeControl(10,10,10) == 10.5);
+	pidController pid;
+	double x = 10.0;
+	assert(pid.computeControl(x,x,x) == 10.5);
 }
 
