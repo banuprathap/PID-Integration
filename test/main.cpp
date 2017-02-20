@@ -1,7 +1,12 @@
-#include <gtest/gtest.h>
 
-int main( int argc , char** argv )
-{
-  ::testing::InitGoogleTest( &argc, argv );
-  return RUN_ALL_TESTS();
+
+#include "test.hpp"
+
+int main() {
+    testPIDController testPID;
+
+    testPID.testSetParams();
+    testPID.testComputeControl();
+
+    return 0;
 }

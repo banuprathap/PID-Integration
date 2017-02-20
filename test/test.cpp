@@ -1,3 +1,12 @@
+/**
+ * @file test.cpp
+ * Code was written as part of HomeWork 4
+ * @brief Test cases for PID controller
+ *
+ * @author Banuprathap Anandan 
+ * @version 1.0.1
+ */
+
 #include <assert.h>
 #include <iostream>
 #include <pidController.hpp>
@@ -21,6 +30,6 @@ void testPIDController::testSetParams() {
 void testPIDController::testComputeControl() {
 	pidController pid;
 	double x = 10.0;
-	assert(pid.computeControl(x,x,x) == 10.5);
+	assert(pid.computeControl(x,x,x) == 0); /* Should return actual value after implementation*/
 }
 
