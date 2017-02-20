@@ -1,31 +1,29 @@
-#pragma once
-
+#include <assert>
 #include <iostream>
+#include <pidController.hpp>
+#include <tuple>
 
 class testPIDController{
 
 public:
-	void testPIDController();
-	void ~testPIDController();
-	bool testSetParams(double &p, double &i, double &d);
-	bool testComputeControl(double &setVal, double &time);
-	bool testAllMethods();
+	testPIDController();
+	~testPIDController();
+	void testSetParams();
+	void testComputeControl();
+};
+
+testPIDController::testPIDController(){}
+
+testPIDController::~testPIDController(){}
+
+void testPIDController::testSetParams() {
+	pidController pid;
+	pid.setParams(10,10,10);
+	assert(pid.getParams() == std::make_tuple(10,10,10));
 }
 
-void testPIDController(){}
 
-void ~testPIDController(){}
-
-bool testPIDController::testSetParams(double &p, double &i, double &d) {
-	/* assert test here */
-	/* You may want to use getParams() method*/
+void testPIDController::testComputeControl() {
+	assert(pid.computeControl(10,10,10) == 10.5);
 }
 
-
-bool testPIDController::testComputeControl(double &setVal, double &time) {
-	/* assert test here */
-}
-
-bool testAllMethods() {
-	/*assert test here*/
-}

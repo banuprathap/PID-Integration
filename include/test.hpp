@@ -5,11 +5,11 @@
 class testPIDController{
 
 public:
-	void testPIDController();
-	void ~testPIDController();
+	testPIDController();
+	~testPIDController();
 	bool testSetParams(double &p, double &i, double &d);
 	bool testComputeControl(double &setVal, double &time);
 	bool testAllMethods();
-}
+};
 
 #endif

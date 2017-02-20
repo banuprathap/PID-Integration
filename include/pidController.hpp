@@ -2,18 +2,17 @@
 #define INCLUDE_PIDCONTROLLER_HPP_
 
 
-class pidController
-{
+class pidController{
 private:
 	double Kd;
 	double Ki;
 	double Kp; 
 public:
-	void pidController();
-	void ~pidController();
+	pidController();
+	~pidController();
 	void setParams(double &p, double &i, double &d);
-	double computeControl(double &setVal, double &time);
+	double computeControl(double &setVal,double &currentVal, double &time);
 	std::tuple<double, double, double> getParams();
-}
+};
 
 #endif
