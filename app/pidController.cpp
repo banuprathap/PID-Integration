@@ -2,35 +2,37 @@
 
 #include <iostream>
 
-class PIDController
+class pidController
 {
 private:
 	double Kd;
 	double Ki;
 	double Kp; 
 public:
-	void PIDController();
-	void ~PIDController();
+	void pidController();
+	void ~pidController();
 	void setParams(double &p, double &i, double &d);
 	double computeControl(double &setVal, double &time);
 	std::tuple<double, double, double> getParams();
 }
 
-void PIDController(){}
+void pidController(){
+	std::cout << "Header Links good";
+}
 
-void ~PIDController(){};
+void ~pidController(){}
 
-void PIDController::setParams(double &p, double &i, double &d) {
+void pidController::setParams(double &p, double &i, double &d) {
 	Kp = p;
 	Ki = i;
 	Kd = d;
 }
 
-std::tuple<double, double, double> PIDController::getParams() {
+std::tuple<double, double, double> pidController::getParams() {
 	return std::make_tuple(Kp, Ki, Kd);
 }
 
-double PIDController::computeControl(double &setVal, double &time) {
+double pidController::computeControl(double &setVal, double &time) {
 	double newVal = 10.5;
 	return newVal;
 }
