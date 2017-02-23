@@ -18,7 +18,7 @@
  *   @param  none
  *   @return none
  */
-pidController::pidController(void){}
+pidController::pidController(void) {}
 
 
 /**
@@ -29,8 +29,8 @@ pidController::pidController(void){}
  *   @param  none
  *   @return none
  */
- 
-pidController::~pidController(void){}
+
+pidController::~pidController(void) {}
 
 
 /**
@@ -42,9 +42,9 @@ pidController::~pidController(void){}
    @return Function is of type Void.
  */
 void pidController::setParams(double &p, double &i, double &d) {
-	pidController::Kp = p;
-	pidController::Ki = i;
-	pidController::Kd = d;
+    pidController::Kp = p;
+    pidController::Ki = i;
+    pidController::Kd = d;
 }
 
 
@@ -57,7 +57,8 @@ void pidController::setParams(double &p, double &i, double &d) {
    @return std::tuple<double, double, double>.
  */
 std::tuple<double, double, double> pidController::getParams() {
-	return std::make_tuple(pidController::Kp, pidController::Ki, pidController::Kd);
+    return std::make_tuple(pidController::Kp, pidController::Ki,
+                           pidController::Kd);
 }
 
 
@@ -70,7 +71,20 @@ std::tuple<double, double, double> pidController::getParams() {
    @param[in]     &time Time difference.
    @return        newVal Control value.
  */
-double pidController::computeControl(double &setVal,double &currentVal, double &time) {
-	double newVal = 10.5;
-	return newVal;
+double pidController::computeControl(double &setVal, double &currentVal,
+                                     double &time) {
+    double newVal = 0;
+    double error = 0;
+    double prevError = 0;
+    double integral = 0;
+    double derivative = 0;
+
+    error = setVal - currentVal;
+    integral = integral + error * time;
+    derivative = (error - prevError) / time;
+
+    newVal = Kp * error + Ki * integral  + Kd * derivative;
+    prevError = error;
+
+    return newVal;
 }
