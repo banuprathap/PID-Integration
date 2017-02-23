@@ -79,6 +79,10 @@ double pidController::computeControl(double &setVal, double &currentVal,
     double integral = 0;
     double derivative = 0;
 
+    // diff time should not be zero
+    if (time == 0)
+        return 0;
+
     error = setVal - currentVal;
     integral = integral + error * time;
     derivative = (error - prevError) / time;
