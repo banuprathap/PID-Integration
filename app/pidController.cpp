@@ -41,7 +41,7 @@ pidController::~pidController(void) {}
    @param[in]     &d Differential gain.
    @return Function is of type Void.
  */
-void pidController::setParams(double &p, double &i, double &d) {
+void pidController::setParams(double p, double i, double d) {
     pidController::Kp = p;
     pidController::Ki = i;
     pidController::Kd = d;
@@ -71,8 +71,8 @@ std::tuple<double, double, double> pidController::getParams() {
    @param[in]     &time Time difference.
    @return        newVal Control value.
  */
-double pidController::computeControl(double &setVal, double &currentVal,
-                                     double &time) {
+double pidController::computeControl(double setVal, double currentVal,
+                                     double time) {
     double newVal = 0;
     double error = 0;
     double prevError = 0;

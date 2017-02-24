@@ -6,6 +6,7 @@
  * @author Banuprathap Anandan 
  * @version 1.0.1
  */
+#include <tuple>
 
 #ifndef INCLUDE_PIDCONTROLLER_HPP_
 #define INCLUDE_PIDCONTROLLER_HPP_
@@ -25,8 +26,8 @@ private:
 public:
 	pidController();
 	~pidController();
-	void setParams(double &p, double &i, double &d);
-	double computeControl(double &setVal,double &currentVal, double &time);
+	void setParams(double p, double i, double d);
+	double computeControl(double setVal,double currentVal, double time);
 	std::tuple<double, double, double> getParams();
 };
 

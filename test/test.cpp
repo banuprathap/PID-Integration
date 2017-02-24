@@ -7,13 +7,12 @@
  * @version 1.0.1
  */
 
-#include <assert.h>
-#include <iostream>
+
 #include <pidController.hpp>
-#include <test.hpp>
 #include <tuple>
-
-
+#include <gtest/gtest.h>
+#include <test.hpp>
+#include <assert.h>
 /**
     
  *   @brief  Constructor function of
@@ -56,7 +55,10 @@ void testPIDController::testSetParams() {
 */
 void testPIDController::testComputeControl() {
 	pidController pid;
-	double x = 10.0;
-	assert(pid.computeControl(x,x,x) == 0); /* Should return actual value after implementation*/
+	double x = 1.0;
+	pid.setParams(x,x,x);
+	ASSERT_EQ(pid.computeControl(x,x,x), 0); /* Should return actual value after implementation*/
+	ASSERT_EQ(pid.computeControl(25,20,1.0), 15);
+	ASSERT_EQ(pid.computeControl(25,20,0.0), 0);
 }
 
